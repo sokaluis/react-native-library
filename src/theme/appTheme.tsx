@@ -5,6 +5,7 @@ export const globalStyles = StyleSheet.create({
     marginHorizontal: 20,
   },
   title: {
+    color: 'black',
     fontSize: 35,
     fontWeight: 'bold',
   },
