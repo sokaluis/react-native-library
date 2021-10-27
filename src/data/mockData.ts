@@ -49,6 +49,12 @@ export const menuItems: MenuItem[] = [
     icon: 'copy-outline',
     component: 'ModalScreen',
   },
+  {
+    id: '9',
+    name: 'Infinite Scroll',
+    icon: 'infinite-outline',
+    component: 'InfitineLoadingScreen',
+  },
 ];
 
 export const casas: Casas[] = [
