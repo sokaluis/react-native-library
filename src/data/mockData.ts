@@ -13,4 +13,10 @@ export const menuItems: MenuItem[] = [
     icon: 'albums-outline',
     component: 'Animation102Screen',
   },
+  {
+    id: '3',
+    name: 'Switchs',
+    icon: 'toggle-outline',
+    component: 'SwitchScreen',
+  },
 ];

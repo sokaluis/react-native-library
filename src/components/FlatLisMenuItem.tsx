@@ -3,6 +3,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { MenuItem } from '../interfaces/appInterfaces';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation, CommonActions } from '@react-navigation/core';
+import { appColors } from '../theme/appTheme';
 
 interface Props {
   menuItem: MenuItem;
@@ -15,13 +16,13 @@ const FlatLisMenuItem = ({ menuItem }: Props) => {
     <TouchableOpacity
       onPress={() => dispatch(CommonActions.navigate(component))}>
       <View style={styles.container}>
-        <Icon name={icon} size={23} color="grey" />
+        <Icon name={icon} size={23} color={appColors.PRIMARY} />
         <Text style={styles.itemText}>{name}</Text>
         <View style={styles.spacer} />
         <Icon
           name="chevron-forward-outline"
           size={23}
-          color="grey"
+          color={appColors.PRIMARY}
           style={styles.arrow}
         />
       </View>
