@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { CustomSwitch } from '../components/CustomSwitch';
 import { Header } from '../components/Header';
+import { globalStyles } from '../theme/appTheme';
 
 interface Switches {
   isActive: boolean;
@@ -26,7 +27,7 @@ export const SwitchScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={globalStyles.globalContainer}>
       <Header title="Switches" />
       <View style={styles.switchRow}>
         <Text style={styles.switchText}>isActive</Text>
@@ -55,12 +56,6 @@ export const SwitchScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginHorizontal: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   switchRow: {
     width: '100%',
     flexDirection: 'row',

@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Animated, Button } from 'react-native';
 import { useNavigation } from '../hooks/useNavigation';
+import { globalStyles } from '../theme/appTheme';
 
 export const Animation101Screen = () => {
   const {
@@ -13,7 +14,7 @@ export const Animation101Screen = () => {
   } = useNavigation();
 
   return (
-    <View style={styles.container}>
+    <View style={globalStyles.globalContainer}>
       <Animated.View
         style={{
           ...styles.purpleBox,
@@ -40,11 +41,6 @@ export const Animation101Screen = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   purpleBox: {
     backgroundColor: '#5856D6',
     width: 150,

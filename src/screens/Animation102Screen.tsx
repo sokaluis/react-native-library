@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { Animated, PanResponder, StyleSheet, View } from 'react-native';
+import { globalStyles } from '../theme/appTheme';
 
 export const Animation102Screen = () => {
   const pan = useRef(new Animated.ValueXY()).current;
@@ -24,7 +25,7 @@ export const Animation102Screen = () => {
     },
   });
   return (
-    <View style={styles.container}>
+    <View style={globalStyles.globalContainer}>
       <Animated.View
         {...panResponder.panHandlers}
         style={[pan.getLayout(), styles.purpleBox]}
@@ -34,11 +35,6 @@ export const Animation102Screen = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   purpleBox: {
     backgroundColor: '#75CEDB',
     width: 150,

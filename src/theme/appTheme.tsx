@@ -8,6 +8,12 @@ export const globalStyles = StyleSheet.create({
   globalMargin: {
     marginHorizontal: 20,
   },
+  globalContainer: {
+    flex: 1,
+    marginHorizontal: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   title: {
     color: 'black',
     fontSize: 35,
