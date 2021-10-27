@@ -1,5 +1,6 @@
 import React from 'react';
 import { Alert, Button, View, Platform } from 'react-native';
+import prompt from 'react-native-prompt-android';
 import { Header } from '../components/Header';
 import { globalStyles } from '../theme/appTheme';
 
@@ -21,7 +22,7 @@ export const AlertsScreen = () => {
         onDismiss: () => console.log('On Dismiss'),
       },
     );
-  const createButtonPrompt = () =>
+  const createButtonPromptIOS = () =>
     Alert.prompt(
       'Estas Seguro',
       'Esta accion no se puede revertir',
@@ -30,13 +31,40 @@ export const AlertsScreen = () => {
       'Hola Mundo',
       'number-pad',
     );
+  const createButtonPromptAnd = () =>
+    prompt(
+      'Enter password',
+      'Enter your password to claim your $1.5B in lottery winnings',
+      [
+        {
+          text: 'Cancel',
+          onPress: () => console.log('Cancel Pressed'),
+          style: 'cancel',
+        },
+        {
+          text: 'OK',
+          onPress: password => console.log('OK Pressed, password: ' + password),
+        },
+      ],
+      {
+        type: 'secure-text',
+        cancelable: false,
+        defaultValue: 'test',
+        placeholder: 'placeholder',
+      },
+    );
   return (
     <View style={globalStyles.globalContainer}>
       <Header title="Alerts" />
       <Button title="Mostrar Alerta" onPress={createButtonAlert} />
-      {Platform.OS === 'ios' && (
-        <Button title="Mostrar Prompt" onPress={createButtonPrompt} />
-      )}
+      <Button
+        title="Mostrar Prompt"
+        onPress={() => {
+          Platform.OS === 'ios'
+            ? createButtonPromptIOS()
+            : createButtonPromptAnd;
+        }}
+      />
     </View>
   );
 };
