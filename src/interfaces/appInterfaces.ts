@@ -4,3 +4,8 @@ export interface MenuItem {
   icon: string;
   component: string;
 }
+
+export interface Casas {
+  casa: string;
+  data: string[];
+}
