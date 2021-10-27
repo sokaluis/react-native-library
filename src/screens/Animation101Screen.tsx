@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Animated, Button } from 'react-native';
-import { useNavigation } from '../hooks/useNavigation';
+import { useAnimation } from '../hooks/useAnimation';
 import { globalStyles } from '../theme/appTheme';
 
 export const Animation101Screen = () => {
@@ -11,7 +11,7 @@ export const Animation101Screen = () => {
     fadeOut,
     startMovingPosition,
     endMovingPosition,
-  } = useNavigation();
+  } = useAnimation();
 
   return (
     <View style={globalStyles.globalContainer}>

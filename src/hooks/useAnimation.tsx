@@ -1,14 +1,14 @@
 import { useRef } from 'react';
 import { Animated, Easing } from 'react-native';
 
-export const useNavigation = () => {
+export const useAnimation = () => {
   const opacity = useRef(new Animated.Value(0.4)).current;
   const position = useRef(new Animated.Value(-100)).current;
 
-  const fadeIn = () => {
+  const fadeIn = (duration: number = 300) => {
     Animated.timing(opacity, {
       toValue: 1,
-      duration: 800,
+      duration,
       useNativeDriver: true,
     }).start();
   };
