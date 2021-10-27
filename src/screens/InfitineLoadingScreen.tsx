@@ -18,14 +18,23 @@ export const InfitineLoadingScreen = () => {
   };
 
   const renderItem = (item: number) => {
-    return <FadeInImage uri={`https://picsum.photos/id/${item}/500/400`} />;
+    return (
+      <FadeInImage
+        uri={`https://picsum.photos/id/${item}/500/400`}
+        style={{ width: '100%', height: 400 }}
+      />
+    );
   };
   return (
     <View style={styles.container}>
       <FlatList
         data={numbers}
         keyExtractor={item => item.toString()}
-        ListHeaderComponent={() => <Header title="InfitineLoadingScreen" />}
+        ListHeaderComponent={() => (
+          <View style={styles.listHeader}>
+            <Header title="InfitineLoadingScreen" />
+          </View>
+        )}
         renderItem={({ item }) => renderItem(item)}
         onEndReached={loadMore}
         onEndReachedThreshold={0.5}
@@ -55,5 +64,8 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  listHeader: {
+    marginHorizontal: 20,
   },
 });
