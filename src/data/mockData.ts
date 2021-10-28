@@ -55,6 +55,12 @@ export const menuItems: MenuItem[] = [
     icon: 'infinite-outline',
     component: 'InfitineLoadingScreen',
   },
+  {
+    id: '10',
+    name: 'Slide',
+    icon: 'flower-outline',
+    component: 'SlideScreen',
+  },
 ];
 
 export const casas: Casas[] = [
