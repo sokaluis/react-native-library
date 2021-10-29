@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   StyleSheet,
   TextInput,
@@ -12,6 +12,7 @@ import { globalStyles } from '../theme/appTheme';
 import { Platform } from 'react-native';
 import useForm from '../hooks/useForm';
 import { CustomSwitch } from '../components/CustomSwitch';
+import { ThemeContext } from '../context/themeContext';
 
 interface Form {
   name: string;
@@ -27,6 +28,9 @@ export const InputScreen = () => {
     phone: '',
     isSubscribe: false,
   });
+  const {
+    theme: { colors, dividerColor },
+  } = useContext(ThemeContext);
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
@@ -34,16 +38,26 @@ export const InputScreen = () => {
         <View style={globalStyles.globalContainer}>
           <Header title="Inputs" />
           <TextInput
-            style={styles.inputs}
+            style={{
+              ...styles.inputs,
+              borderColor: colors.border,
+              color: colors.text,
+            }}
             placeholder="Ingrese su Nombre"
+            placeholderTextColor={dividerColor}
             autoCorrect={false}
             autoCapitalize="words"
             onChangeText={value => onChange(value, 'email')}
             keyboardAppearance="default"
           />
           <TextInput
-            style={styles.inputs}
+            style={{
+              ...styles.inputs,
+              borderColor: colors.border,
+              color: colors.text,
+            }}
             placeholder="Ingrese su Email"
+            placeholderTextColor={dividerColor}
             autoCorrect={false}
             autoCapitalize="none"
             onChangeText={value => onChange(value, 'email')}
@@ -63,8 +77,13 @@ export const InputScreen = () => {
             <Header title={JSON.stringify(state, null, 3)} />
           </View>
           <TextInput
-            style={styles.inputs}
+            style={{
+              ...styles.inputs,
+              borderColor: colors.border,
+              color: colors.text,
+            }}
             placeholder="Ingrese su Telefono"
+            placeholderTextColor={dividerColor}
             autoCorrect={false}
             onChangeText={value => onChange(value, 'phone')}
             keyboardType="phone-pad"
@@ -82,7 +101,6 @@ export const InputScreen = () => {
 const styles = StyleSheet.create({
   inputs: {
     borderWidth: 1,
-    borderColor: 'rgba(0, 0, 0, 0.5)',
     width: '100%',
     height: 50,
     paddingHorizontal: 10,

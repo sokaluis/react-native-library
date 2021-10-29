@@ -1,8 +1,8 @@
 import React from 'react';
 import { SectionList, StyleSheet, Text, View } from 'react-native';
 import { Header } from '../components/Header';
+import { casas } from '../data/sectionData';
 import { ItemSeparator } from '../components/ItemSeparator';
-import { casas } from '../data/mockData';
 import { globalStyles } from '../theme/appTheme';
 
 export const SectionListScreen = () => {

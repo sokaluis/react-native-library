@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { appColors, globalStyles } from '../theme/appTheme';
+import { ThemeContext } from '../context/themeContext';
+import { globalStyles } from '../theme/appTheme';
 
 interface Props {
   title: string;
@@ -9,10 +10,13 @@ interface Props {
 
 export const Header = ({ title }: Props) => {
   const { top: marginTop } = useSafeAreaInsets();
+  const {
+    theme: { colors },
+  } = useContext(ThemeContext);
 
   return (
     <View style={[{ marginTop: marginTop + 20 }, styles.renderListHeader]}>
-      <Text style={[globalStyles.title, { color: appColors.PRIMARY }]}>
+      <Text style={[globalStyles.title, { color: colors.primary }]}>
         {title}
       </Text>
     </View>

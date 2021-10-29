@@ -1,15 +1,22 @@
 import React from 'react';
 import 'react-native-gesture-handler';
-// Navigation
-import {NavigationContainer} from '@react-navigation/native';
 // Componets
 import StackNavigator from './src/navigator/StackNavigator';
+import { ThemeProvider } from './src/context/themeContext';
+
+interface AppStateProps {
+  children: JSX.Element | JSX.Element[];
+}
+
+const AppState = ({ children }: AppStateProps) => {
+  return <ThemeProvider>{children}</ThemeProvider>;
+};
 
 const App = () => {
   return (
-    <NavigationContainer>
+    <AppState>
       <StackNavigator />
-    </NavigationContainer>
+    </AppState>
   );
 };
 

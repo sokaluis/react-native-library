@@ -1,7 +1,8 @@
 import { StyleSheet } from 'react-native';
 
 export const appColors = {
-  PRIMARY: '#5856D6',
+  light: 'white',
+  dark: 'black',
 };
 
 export const globalStyles = StyleSheet.create({

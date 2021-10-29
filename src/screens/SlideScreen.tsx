@@ -1,3 +1,4 @@
+import { CommonActions, useNavigation } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
 import {
   Animated,
@@ -20,6 +21,7 @@ const { height: screenHeight, width: screenWidth } = Dimensions.get('window');
 export const SlideScreen = () => {
   const [dotIndex, setDotIndex] = useState(0);
   const { opacity, fadeIn, fadeOut } = useAnimation();
+  const { dispatch } = useNavigation();
 
   useEffect(() => {
     if (dotIndex !== 2) {
@@ -62,7 +64,8 @@ export const SlideScreen = () => {
         <Animated.View style={{ opacity }}>
           <TouchableOpacity
             style={styles.paginationBackButton}
-            activeOpacity={0.8}>
+            activeOpacity={0.8}
+            onPress={() => dispatch(CommonActions.navigate('Home'))}>
             <Text style={styles.paginationBackButtonText}>Home</Text>
             <Icon name="chevron-forward-outline" size={30} color="white" />
           </TouchableOpacity>
